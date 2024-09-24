@@ -36,6 +36,8 @@ repositories {
     mavenCentral()
     maven { url = uri("https://repo.spring.io/snapshot") }
     maven { url = uri("https://repo.spring.io/milestone") }
+    maven("https://packages.jetbrains.team/maven/p/ij/intellij-dependencies")
+    mavenLocal()
 }
 
 dependencies {
@@ -61,6 +63,7 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    developmentOnly("org.jetbrains.kotlinx:kotlin-jupyter-spring-starter:0.12.0-298-1")
     implementation(kotlin("stdlib-jdk8"))
 }
 

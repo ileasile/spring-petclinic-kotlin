@@ -32,6 +32,10 @@ import org.springframework.transaction.annotation.Transactional
  */
 interface OwnerRepository : Repository<Owner, Int> {
 
+    @Query("SELECT DISTINCT owner FROM Owner owner")
+    @Transactional(readOnly = true)
+    fun findAllOwners(): Collection<Owner>
+
     /**
      * Retrieve {@link Owner}s from the data store by last name, returning all owners
      * whose last name <i>starts</i> with the given name.
