@@ -32,6 +32,10 @@ import org.springframework.transaction.annotation.Transactional
  */
 interface PetRepository : Repository<Pet, Int> {
 
+    @Query("SELECT DISTINCT pet FROM Pet pet")
+    @Transactional(readOnly = true)
+    fun findAllPets(): Collection<Pet>
+
     /**
      * Retrieve all {@link PetType}s from the data store.
      * @return a Collection of {@link PetType}s.

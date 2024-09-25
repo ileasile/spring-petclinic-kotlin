@@ -15,8 +15,11 @@
  */
 package org.springframework.samples.petclinic.visit
 
+import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.Repository
 import org.springframework.samples.petclinic.model.BaseEntity
+import org.springframework.samples.petclinic.owner.Pet
+import org.springframework.transaction.annotation.Transactional
 
 /**
  * Repository class for `Visit` domain objects All method names are compliant with Spring Data naming
@@ -29,6 +32,10 @@ import org.springframework.samples.petclinic.model.BaseEntity
  * @author Antoine Rey
  */
 interface VisitRepository : Repository<Visit, Int> {
+
+    @Query("SELECT DISTINCT visit FROM Visit visit")
+    @Transactional(readOnly = true)
+    fun findAllVisits(): Collection<Visit>
 
     /**
      * Save a `Visit` to the data store, either inserting or updating it.
