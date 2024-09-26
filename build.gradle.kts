@@ -63,7 +63,7 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    developmentOnly("org.jetbrains.kotlinx:kotlin-jupyter-spring-starter:0.12.0-298-1")
+    developmentOnly("org.jetbrains.kotlinx:kotlin-jupyter-spring-starter:0.12.0-303")
     implementation(kotlin("stdlib-jdk8"))
 }
 
